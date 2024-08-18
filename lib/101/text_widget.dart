@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TextWidget extends StatelessWidget {
-  const TextWidget({super.key});
+  TextWidget({required this.mesaj});
+  final String mesaj;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class TextWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Merhaba ben text widget nasılsınız',
+              mesaj,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
@@ -25,12 +26,7 @@ class TextWidget extends StatelessWidget {
                 decoration: TextDecoration.underline
               ),
               ),
-              Text(
-              'Merhaba ben diğer text widget nasılsınız',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: ProjeYaziStilleri.stiller,
-              ),
+              ProjeTextWidget(projeMesaj: 'Merhaba',),
               Text(
               'Merhaba ben 3. text widget nasılsınız',
               maxLines: 1,
@@ -40,6 +36,21 @@ class TextWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ProjeTextWidget extends StatelessWidget {
+  final String projeMesaj;
+  ProjeTextWidget({required this.projeMesaj});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+    projeMesaj,
+    maxLines: 1,
+    overflow: TextOverflow.ellipsis,
+    style: ProjeYaziStilleri.stiller,
     );
   }
 }
